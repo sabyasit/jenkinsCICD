@@ -3,22 +3,22 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         stage('Build') {
             steps {
-                sh 'npm build'
+                bat 'npm build'
             }
         }
         stage('Test') {
             steps {
-                sh 'npm test'
+                bat 'npm test'
             }
         }
         stage('Sonar Coverage') {
             steps {
-                sh 'npm run sonar'
+                bat 'npm run sonar'
             }
         }        
         stage('Deploy') {
