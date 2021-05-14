@@ -8,15 +8,14 @@ buildscript {
 
     dependencies {
         classpath 'com.moowork.gradle:gradle-node-plugin:1.2.0'
+        classpath 'org.sonarqube.gradle:gradle-sonarqube-plugin:1.0'
     }
 }
 
-plugins {
-  id "org.sonarqube" version "3.2.0"
-}
 
 apply plugin: 'base'
 apply plugin: 'com.moowork.node' // gradle-node-plugin
+apply plugin: 'org.sonarqube'
 
 node {
     /* gradle-node-plugin configuration
@@ -99,12 +98,7 @@ task test(type: NpmTask) {
     outputs.file testsExecutedMarkerName
 }
 
-check.dependsOn test
-
-clean {
-    delete packageNpmApp.archivePath
-    delete testsExecutedMarkerName
-}
+//check.dependsOn test
 
 sonarqube {
     properties {
@@ -121,4 +115,7 @@ sonarqube {
     }
 }
 
-check.dependsOn sonarqube
+clean {
+    delete packageNpmApp.archivePath
+    delete testsExecutedMarkerName
+}
