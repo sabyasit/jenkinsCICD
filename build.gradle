@@ -8,14 +8,14 @@ buildscript {
 
     dependencies {
         classpath 'com.moowork.gradle:gradle-node-plugin:1.2.0'
-        classpath 'org.sonarqube.gradle:gradle-sonarqube-plugin:1.0'
+        //classpath 'org.sonarqube.gradle:gradle-sonarqube-plugin:1.0'
     }
 }
 
 
 apply plugin: 'base'
 apply plugin: 'com.moowork.node' // gradle-node-plugin
-apply plugin: 'org.sonarqube'
+//apply plugin: 'org.sonarqube'
 
 node {
     /* gradle-node-plugin configuration
