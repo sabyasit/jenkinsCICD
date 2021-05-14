@@ -101,6 +101,11 @@ task test(type: NpmTask) {
 
 check.dependsOn test
 
+clean {
+    delete packageNpmApp.archivePath
+    delete testsExecutedMarkerName
+}
+
 sonarqube {
     properties {
         property "sonar.sourceEncoding", "UTF-8"
@@ -116,7 +121,4 @@ sonarqube {
     }
 }
 
-clean {
-    delete packageNpmApp.archivePath
-    delete testsExecutedMarkerName
-}
+check.dependsOn sonarqube
