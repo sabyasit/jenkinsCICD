@@ -15,11 +15,8 @@ buildscript {
 
 apply plugin: 'base'
 apply plugin: 'com.moowork.node' // gradle-node-plugin
-//apply plugin: 'org.sonarqube'
+apply plugin: 'org.sonarqube'
 
-plugins {
-    id "org.sonarqube" version "2.13.1"
-}
 
 node {
     /* gradle-node-plugin configuration
