@@ -103,6 +103,7 @@ check.dependsOn test
 
 sonarqube {
     properties {
+        property "sonar.login", "3903354214dc8278f08aa67be97493dc52fc881e"
         property "sonar.sourceEncoding", "UTF-8"
         property "sonar.projectKey", "jankins-cicd"
         property "sonar.projectName", "jankins-cicd"
