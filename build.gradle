@@ -18,7 +18,7 @@ apply plugin: 'com.moowork.node' // gradle-node-plugin
 //apply plugin: 'org.sonarqube'
 
 plugins {
-    id "org.sonarqube" version 2.13.1
+    id "org.sonarqube" version "2.13.1"
 }
 
 node {
