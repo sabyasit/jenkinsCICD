@@ -99,7 +99,7 @@ task test(type: NpmTask) {
     outputs.file testsExecutedMarkerName
 }
 
-//check.dependsOn test
+check.dependsOn test
 
 sonarqube {
     properties {
@@ -116,7 +116,7 @@ sonarqube {
     }
 }
 
-check.dependsOn sonarqube
+//tasks['sonarqube'].dependsOn test
 
 clean {
     delete packageNpmApp.archivePath
