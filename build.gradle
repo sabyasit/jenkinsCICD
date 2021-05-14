@@ -11,6 +11,10 @@ buildscript {
     }
 }
 
+plugins {
+  id "org.sonarqube" version "3.2.0"
+}
+
 apply plugin: 'base'
 apply plugin: 'com.moowork.node' // gradle-node-plugin
 
@@ -96,6 +100,21 @@ task test(type: NpmTask) {
 }
 
 check.dependsOn test
+
+sonarqube {
+    properties {
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.projectKey" "jankins-cicd"
+        property "sonar.projectName" "jankins-cicd"
+        property "sonar.projectVersion" "1.0"
+        property "sonar.sourceEncoding" "UTF-8"
+        property "sonar.sources" "src"
+        property "sonar.exclusions" "**/node_modules/**"
+        property "sonar.tests" "src"
+        property "sonar.test.inclusions" "**/*.spec.ts"
+        property "sonar.typescript.lcov.reportPaths" "coverage/lcov.info"
+    }
+}
 
 clean {
     delete packageNpmApp.archivePath
